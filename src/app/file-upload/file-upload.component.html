@@ -1,0 +1,40 @@
+<div>
+  <h2>Upload File to Write shell file & calculate weightage</h2>
+  <!-- <span class="upload-button">Choose File to write TestCases</span> -->
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" class="file-input"/>
+  <br />
+  <br />
+  <label for="evaluationTypes">Select Evaluation Types:</label>
+  <select id="evaluationTypes" [(ngModel)]="selectedEvaluationTypes" name="evaluationTypes" multiple (change)="onEvaluationChange()">
+    <option value="Karma">Karma</option>
+    <option value="NUnit">NUnit</option>
+  </select>
+  <br />
+  <div *ngIf="showMvcWebApi">
+    <label for="projectType">Is this MVC or WebAPI?</label>
+    <select id="projectType" [(ngModel)]="projectType" name="projectType">
+      <option value="MVC">MVC</option>
+      <option value="WebAPI">WebAPI</option>
+    </select>
+  </div>
+  <br />
+  <div class="buttons">
+  <button (click)="onUpload()">Upload</button>
+  <button (click)="cancel()">Cancel</button>
+  <button *ngIf="download" class="download-button" (click)="downloadFile()">Download Zip File</button>
+  <button *ngIf="download && downloadsh" class="download-button" (click)="downloadSHFile()">Download SH File</button>
+  </div>
+
+</div>
+
+
+
+<div *ngIf="loading">
+  <i class="fa-solid fa-spinner fa-spin-pulse"></i> Loading...
+</div>
+<div *ngIf="responseText">
+  <h1>TestCaese Count: {{testcasesCount}}</h1>
+  <h3>Response for {{filename}}:</h3>
+  <pre>{{ responseText }}</pre>
+</div>
+

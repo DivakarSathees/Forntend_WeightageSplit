@@ -1,0 +1,52 @@
+
+<div *ngIf="editMode" class="application-modal">
+
+  <h2>Edit Testcase</h2>
+  <div class="modal-content">
+    <div class="info-container">
+      <label>TestCase Name</label>
+
+      <div *ngFor="let testcase of data.testcases" class="left">
+        <div>
+          <input class="name" [(ngModel)]="testcase.name" readonly/>
+        </div>
+      </div>
+    </div>
+    <div class="info-container">
+      <label>Weightage</label>
+
+      <div *ngFor="let testcase of data.testcases" class="right">
+        <div>
+          <input
+            class="weightage" type="number" min="0" max="1"
+            [(ngModel)]="testcase.weightage"
+            (ngModelChange)="updateWeightages(testcase)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <button type="button" (click)="cancelEdit()">Cancel</button>
+  <button type="button" (click)="SaveEdit()">Generate JSON</button>
+</div>
+<!--
+<h2>Edit Testcase</h2>
+<div *ngFor="let evaluation of data.testcases" class="modal-content">
+  <div *ngFor="let testcase of evaluation.testcases" class="info-container">
+    <div class="left">
+      <div>
+        <label>Name:</label>
+        <input [(ngModel)]="testcase.name" />
+      </div>
+    </div>
+    <div class="right">
+      <div>
+        <label>Weightage:</label>
+        <input class="weightage" [(ngModel)]="testcase.weightage" />
+      </div>
+    </div>
+  </div>
+</div> -->
+

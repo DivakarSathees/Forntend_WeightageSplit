@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #00495d; /* Dark background color */
+  padding: 15px 0; /* Add some padding for better spacing */
+
+  display: flex;
+  justify-content: center;
+}
+
+/* Navbar brand (logo) styling */
+.navbar-brand {
+  color: #fff; /* White text color */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navbar links styling */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0 15px; /* Adjust spacing between nav items */
+}
+
+.nav-link {
+  color: #e4f9ff; /* White text color */
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 1s;
+}
+
+/* Active link styling */
+.nav-item.active .nav-link {
+  color: #6cbab5; /* Change to your desired active color */
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+  color: #1ac3b8; /* Change to your desired hover color */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}

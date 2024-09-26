@@ -1,0 +1,31 @@
+
+    <div class="file-upload-container">
+      <label for="fileInput" class="custom-file-input">
+        <span class="upload-button">Choose File to write TestCases</span>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" class="file-input" />
+      </label>
+      <!-- checkbox to write testcases on httptest -->
+      <div class="checkbox-container">
+        <input type="checkbox" id="writeTestCasesOnHttptest" [(ngModel)]="writeTestCasesOnHttptest" class="checkbox" />
+        <label for="writeTestCasesOnHttptest" class="checkbox-label">Write TestCases on Httptest</label>
+      </div>
+      <span *ngIf="filename" class="file-name">{{ selectedFileName }}</span>
+
+      <button class="upload-button" (click)="uploadFile()">Upload</button>
+      <button *ngIf="download" class="download-button" (click)="downloadFile()">Download Test File</button>
+         <!-- I need to diplay the text in the text editor-->
+      <div class="editor-container">
+        <textarea id="editor" class="editor" [(ngModel)]="desc"></textarea>
+      </div>
+      <!-- edting options -->
+      <div class="editor-options">
+        <button class="editor-button" (click)="uploadFile()">Format</button>
+        <button class="editor-button" (click)="uploadFile()">Clear</button>
+      </div>
+      <!-- <angular-editor [(ngModel)]="desc" [placeholder]="'Enter text here...'" ></angular-editor> -->
+    </div>
+
+
+
+
+

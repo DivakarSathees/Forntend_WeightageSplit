@@ -1,0 +1,93 @@
+/* .file-upload-container {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  margin: 0;
+}
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* Style for the custom file input */
+.custom-file-input {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Style for the actual file input */
+.file-input {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/* Style for the upload button */
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #177a96; /* Green background color */
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style for the file name display */
+.file-name {
+  margin-bottom: 10px;
+  font: 1.2em sans-serif;
+}
+
+/* Style for the download button */
+.download-button {
+  padding: 10px 20px;
+  background-color: #00546c; /* Blue background color */
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Optional: Hover effect for buttons */
+.upload-button:hover,
+.download-button:hover {
+  opacity: 0.8;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust as needed for spacing */
+}
+
+.checkbox {
+  margin-right: 8px; /* Adjust as needed for spacing between checkbox and label */
+}
+
+.checkbox-label {
+  font-size: 14px; /* Adjust as needed for label font size */
+  color: #177a96; /* Adjust as needed for label color */
+  cursor: pointer;
+}
+.checkbox-input{
+  color: #ff0000;
+}
+
+/* Optional: Style for when the checkbox is checked */
+.checkbox:checked + .checkbox-label {
+  font-weight: bold;
+  color: #00546c; /* Adjust as needed for checked label color */
+}

@@ -1,0 +1,26 @@
+/* Style for the container div */
+div {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+/* Style for the JSON Viewer heading */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for the JSON output */
+pre {
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
