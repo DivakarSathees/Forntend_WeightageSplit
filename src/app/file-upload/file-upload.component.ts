@@ -36,6 +36,17 @@ export class FileUploadComponent {
     this.showMvcWebApi = this.selectedEvaluationTypes.includes('NUnit');
   }
 
+  deleteAllRecords(): void {
+    this.apiSerivce.deleteAllRecords().subscribe(
+      (response) => {
+        console.log('All records deleted:', response);
+      },
+      (error) => {
+        console.error('Error deleting all records:', error);
+      }
+    );
+  }
+
   downloadFile(): void {
     this.apiSerivce.downloadZipFile(this.fileToUpload?.name).subscribe(
       (data: Blob) => {

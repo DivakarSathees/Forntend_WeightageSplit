@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
-  // private baseUrl = "http://localhost:3000"
-  private baseUrl = environment.baseUrl;
+  private baseUrl = "http://localhost:3000"
+  // private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
   uploadFile(file: FormData): Observable<any> {
@@ -28,6 +28,10 @@ export class ApiService {
 
   downloadUnitTestFile(): Observable<Blob> {
     return this.http.get(`${this.baseUrl}/downloadtest`, { responseType: 'blob' });
+  }
+
+  deleteAllRecords(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/deleteall`);
   }
 
   downloadZipFile(zip: any, type?: any): Observable<Blob> {
