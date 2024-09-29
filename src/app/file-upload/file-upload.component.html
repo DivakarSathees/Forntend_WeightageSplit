@@ -9,11 +9,22 @@
      <br />
   <label for="evaluationTypes">Select Evaluation Types:</label>
   <select id="evaluationTypes" [(ngModel)]="selectedEvaluationTypes" name="evaluationTypes" multiple (change)="onEvaluationChange()">
-    <option value="Karma">Karma</option>
-    <option value="NUnit">NUnit</option>
-    <option value="JUnit">JUnit</option>
-    <option value="Jest">Jest</option>
+    <option value="Karma">Karma (angular)</option>
+    <option value="NUnit">NUnit (dotnet)</option>
+    <option value="JUnit">JUnit (Java)</option>
+    <option value="Jest">Jest (react)</option>
+    <option value="Puppeteer">Puppeteer</option>
   </select>
+  <br />
+  <!-- Dropdown for Puppeteer only -->
+  <div *ngIf="showPuppeteerOptions">
+    <label for="puppeteerAppType">Select Puppeteer App Type:</label>
+    <select id="puppeteerAppType" [(ngModel)]="puppeteerAppType" name="puppeteerAppType">
+      <option value="angularapp">Angular App</option>
+      <option value="reactapp">React App</option>
+      <option value="dotnetappmvc">Dotnet App MVC</option>
+    </select>
+  </div>
   <br />
   <div *ngIf="showMvcWebApi">
     <label for="projectType">Is this MVC or WebAPI?</label>

@@ -16,6 +16,8 @@ export class FileUploadComponent {
   projectType: string = '';
   showMvcWebApi: boolean = false;
   testcasesCount: number = 0;
+  showPuppeteerOptions: boolean = false;
+  puppeteerAppType: string = '';
   download: boolean = false;
   filename: string = '';
   downloadsh: boolean = false;
@@ -34,6 +36,7 @@ export class FileUploadComponent {
   onEvaluationChange() {
     // Show MVC/WebAPI option if NUnit is selected
     this.showMvcWebApi = this.selectedEvaluationTypes.includes('NUnit');
+    this.showPuppeteerOptions = this.selectedEvaluationTypes.length === 1 && this.selectedEvaluationTypes.includes('Puppeteer');
   }
 
   deleteAllRecords(): void {
@@ -162,7 +165,12 @@ export class FileUploadComponent {
       const formData = new FormData();
       formData.append('zipFile', this.fileToUpload);
       formData.append('evaluationTypes', this.selectedEvaluationTypes.join(','));
+      if (this.showMvcWebApi) {
       formData.append('projectType', this.projectType);
+      }
+      if(this.showPuppeteerOptions){
+      formData.append('puppeteerSource', this.puppeteerAppType);
+      }
 
       // Pass the selected evaluation types as a comma-separated string
       const evaluationTypes = this.selectedEvaluationTypes.join(',');
