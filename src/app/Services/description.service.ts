@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class DescriptionService {
 
-  private baseUrl = "http://localhost:3000"
+  // private baseUrl = "http://localhost:3000"
+  private baseUrl = "https://backend-descriptiongenerator.onrender.com"
   // private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
