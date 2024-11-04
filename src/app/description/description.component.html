@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()">
+  <label>Project Type:</label>
+  <!-- <input [(ngModel)]="descriptionData.projectType" name="projectType" required /> -->
+  <select [(ngModel)]="descriptionData.projectType" name="projectType" required>
+    <option value="" disabled>Select Project Type</option>
+    <option value="WEB API">WEB API</option>
+    <option value="Spring Boot">Spring Boot</option>
+  </select>
+
+  <label>Complexity:</label>
+  <!-- <input [(ngModel)]="descriptionData.complexity" name="complexity" required /> -->
+  <select [(ngModel)]="descriptionData.complexity" name="complexity" required>
+    <option value="" disabled>Select complexity Level</option>
+    <option value="Easy">Easy</option>
+    <option value="Intermediate">Medium</option>
+    <option value="Hard">Hard</option>
+  </select>
+
+  <label>Technology:</label>
+  <!-- <input [(ngModel)]="descriptionData.technology" name="technology" required /> -->
+  <select [(ngModel)]="descriptionData.technology" name="technology" required>
+    <option value="" disabled>Select technology</option>
+    <option *ngIf="descriptionData.projectType != 'Spring Boot'" value="ASP.NET Core">ASP.NET Core</option>
+    <option *ngIf="descriptionData.projectType != 'WEB API'" value="Java">Java</option>
+    <option value="Node.js">Node.js</option>
+  </select>
+
+  <label>relationship:</label>
+  <input [(ngModel)]="descriptionData.relationship" name="relationship" required />
+
+  <label>entityCount:</label>
+  <input [(ngModel)]="descriptionData.entityCount" name="entityCount" required />
+  <label>operations:</label>
+  <input [(ngModel)]="descriptionData.operations" name="operations" required />
+  <label>topic:</label>
+  <input [(ngModel)]="descriptionData.topic" name="topic" required />
+
+
+
+  <button type="submit">Generate Description</button>
+</form>
+<div class="desc">
+<div class="desce" *ngIf="generatedDescription">
+  <h3>Generated Description:</h3>
+  <textarea [(ngModel)]="generatedDescription"rows="5" cols="50"></textarea>
+  <button (click)="GenrateSoln()" type="submit">Generate Solution Json</button>
+</div>
+
+<div class="soln" *ngIf="generatedSoln">
+  <h3>Generated Solution:</h3>
+  <textarea [(ngModel)]="generatedSoln" rows="5" cols="50"></textarea>
+  <button (click)="GenrateFolder()" type="submit">Generate Solution Folder</button>
+
+</div>
+</div>

@@ -1,0 +1,161 @@
+/*
+form, .generated-output {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #00495d;
+}
+
+.generated-output {
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #e8f4fc;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.desc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+} */
+
+
+/* General Form Styles */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+/* Label Styles */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Input and Select Styles */
+form input, form select, .desc textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Button Styles */
+form button, .desc button {
+  width: 100%;
+  padding: 10px;
+  background-color: #177a96;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover, .desc button:hover {
+  background-color: #00495d;
+}
+
+/* Generated Description & Solution Sections */
+.desc {
+  /* max-width: 600px; */
+  margin: 20px auto;
+  padding: 20px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.desc h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Textarea Styles */
+.desce textarea, .soln textarea {
+  resize: vertical;
+  padding: 10px;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+  form, .desc {
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  form button, .desc button {
+    width: 100%;
+  }
+}
+

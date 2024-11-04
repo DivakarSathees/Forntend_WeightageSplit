@@ -1,0 +1,17 @@
+
+<div class="json-soln">
+<h2 mat-dialog-title>Generated Solution</h2>
+<!-- <mat-dialog-content> -->
+  <ngx-monaco-editor
+    [(ngModel)]="generatedSoln"
+    [options]="editorOptions"
+    (ngModelChange)="onCodeChange($event)"
+    >
+  </ngx-monaco-editor>
+<!-- </mat-dialog-content> -->
+<mat-dialog-actions>
+  <button (click)="GenrateFolder()" type="submit">Generate Solution Folder</button>
+
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>
+</div>

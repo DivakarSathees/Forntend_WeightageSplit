@@ -1,0 +1,99 @@
+/* Overall container styling */
+.container {
+  height: 100vh;
+  display: flex;
+  background-color: #f4f6f8;
+}
+.mat-drawer-content{
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  width: -webkit-fill-available;
+  overflow: auto;
+}
+
+/* Side navigation styling */
+mat-sidenav {
+  width: 300px;
+  background-color: #76cce382;
+  color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+mat-nav-list {
+  padding: 10px;
+}
+
+/* Folder and file items styling */
+mat-list-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+mat-list-item:hover {
+  background-color: #62d9fa82;
+}
+
+/* Folder icon color */
+mat-icon {
+  margin-right: 8px;
+  color: #ffca28;
+}
+
+mat-list-item[ng-reflect-clicked='true'] {
+  background-color: #44567a;
+  font-weight: bold;
+}
+
+/* Indented nested file items */
+mat-nav-list {
+  padding-left: 20px;
+}
+
+/* Right-side content area styling */
+mat-sidenav-content {
+  padding: 16px;
+  background-color: #eaeff5;
+}
+
+/* Tab group styling */
+mat-tab-group {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+mat-tab-label {
+  font-weight: bold;
+  color: #2f3b52;
+  padding: 8px 16px;
+}
+
+.mat-tab-label-active {
+  color: #007acc;
+}
+
+mat-tab-body {
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Editor styling */
+ngx-monaco-editor {
+  border: 1px solid #d1d9e6;
+  border-radius: 8px;
+  height: calc(100vh - 150px);
+}
+
+/* Adding a smooth transition effect */
+mat-sidenav, mat-tab-group, ngx-monaco-editor {
+  transition: all 0.3s ease;
+}

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +14,15 @@ import { NunitTestcaseComponent } from './nunit-testcase/nunit-testcase.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-
+import { DescriptionComponent } from './description/description.component';
+import { SolutionDialogComponent } from './solution-dialog/solution-dialog.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FileItemComponent } from './components/file-item/file-item.component';
+import { FileExplorerComponent } from './components/file-explorer/file-explorer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +31,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     JsonViewerComponent,
     NavbarComponent,
     NunitTestcaseComponent,
-    ResultDialogComponent
+    ResultDialogComponent,
+    DescriptionComponent,
+    SolutionDialogComponent,
+    FileItemComponent,
+    FileExplorerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +46,14 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NgxDropzoneModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    AngularEditorModule
+    AngularEditorModule,
+    MatListModule,
+    MatIconModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MonacoEditorModule.forRoot()
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

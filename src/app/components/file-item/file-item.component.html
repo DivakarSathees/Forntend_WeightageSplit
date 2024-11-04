@@ -1,0 +1,18 @@
+<ng-container *ngIf="file.type === 'folder'">
+  <mat-list-item (click)="toggleFolder()">
+    <mat-icon>folder</mat-icon> {{ file.name }}
+  </mat-list-item>
+  <mat-nav-list *ngIf="file.open" style="padding-left: 20px;">
+    <app-file-item
+      *ngFor="let child of file.children"
+      [file]="child"
+      (fileSelected)="fileSelected.emit($event)"
+    ></app-file-item>
+  </mat-nav-list>
+</ng-container>
+
+<ng-container *ngIf="file.type === 'file'">
+  <mat-list-item (click)="selectFile()">
+    <mat-icon>insert_drive_file</mat-icon> {{ file.name }}
+  </mat-list-item>
+</ng-container>

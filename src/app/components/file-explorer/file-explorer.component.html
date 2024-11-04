@@ -1,0 +1,56 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <ng-container *ngFor="let file of files">
+        <ng-template [ngIf]="file.type === 'folder'">
+          <mat-list-item (click)="toggleFolder(file)">
+            <mat-icon>folder</mat-icon> {{ file.name }}
+          </mat-list-item>
+          <mat-nav-list *ngIf="file.open" style="padding-left: 20px;">
+            <ng-container *ngFor="let child of file.children">
+              <app-file-item [file]="child" (fileSelected)="showFileContent($event)"></app-file-item>
+            </ng-container>
+          </mat-nav-list>
+
+        </ng-template>
+
+        <ng-template [ngIf]="file.type === 'file'">
+          <mat-list-item (click)="showFileContent(file)">
+            <mat-icon>insert_drive_file</mat-icon> {{ file.name }}
+          </mat-list-item>
+        </ng-template>
+      </ng-container>
+    </mat-nav-list>
+
+    <!-- <mat-sidenav-content>
+      <mat-tab-group>
+        <mat-tab *ngFor="let file of files" label="{{ file.name }}">
+          <app-code-editor code="selectedFileContent"></app-code-editor>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-sidenav-content> -->
+
+    
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-tab-group>
+      <mat-tab label="{{ activeTab }}">
+        <div class="editorPanel">
+        <ngx-monaco-editor
+          [options]="editorOptions"
+          [(ngModel)]="selectedFileContent"
+          (ngModelChange)="onCodeChange($event)"
+          >
+        </ngx-monaco-editor>
+        </div>
+
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
