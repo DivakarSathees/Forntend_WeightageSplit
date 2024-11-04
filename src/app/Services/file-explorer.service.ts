@@ -12,7 +12,7 @@ interface FileItem {
   providedIn: 'root'
 })
 export class FileExplorerService {
-  private apiUrl = 'http://localhost:3000/api/solutions';
+  private apiUrl = 'https://backend-descriptiongenerator.onrender.com/api/solutions';
 
   constructor(private http: HttpClient) {}
 
