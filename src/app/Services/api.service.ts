@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = "http://localhost:3000"
-  // private baseUrl = environment.baseUrl;
+  // private baseUrl = "http://localhost:3000"
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
   uploadFile(file: FormData): Observable<any> {
