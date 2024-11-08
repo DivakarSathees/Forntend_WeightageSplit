@@ -17,7 +17,8 @@ export class FileExplorerService {
   constructor(private http: HttpClient) {}
 
   getFiles(projectType: any): Observable<FileItem[]> {
-    const params = new HttpParams().set('path', `D:/description/OutputSolution/${projectType}`);
+    // const params = new HttpParams().set('path', `D:/description/OutputSolution/${projectType}`);
+    const params = new HttpParams().set('path', `/opt/render/project/src/OutputSolution/${projectType}`);
 console.log(params);
 
     return this.http.get<FileItem[]>(`${this.apiUrl}/api/files`, {
