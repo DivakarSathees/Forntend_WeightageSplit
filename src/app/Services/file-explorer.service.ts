@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 interface FileItem {
   name: string;
@@ -12,7 +13,8 @@ interface FileItem {
   providedIn: 'root'
 })
 export class FileExplorerService {
-  private apiUrl = 'https://backend-descriptiongenerator.onrender.com/api/solutions';
+  // private apiUrl = 'https://backend-descriptiongenerator.onrender.com/api/solutions';
+  private apiUrl = `${environment.baseUrl1}/api/solutions`;
 
   constructor(private http: HttpClient) {}
 
