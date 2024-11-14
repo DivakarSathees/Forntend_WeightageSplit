@@ -128,7 +128,7 @@ export class FileUploadComponent {
   }
 
   openResultDialog(response: any): void {
-    console.log(response);
+    console.log(response.jsonObjects.testcases);
 
     const dialogRef = this.dialog.open(ResultDialogComponent, {
       width: '400px',

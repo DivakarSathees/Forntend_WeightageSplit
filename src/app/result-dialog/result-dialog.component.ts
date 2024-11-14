@@ -23,10 +23,10 @@ export class ResultDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ResultDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {console.log(data.testcases);
+  ) {console.log(data.response.jsonObjects[0].testcases);
     console.log(data.response);
 
-    this.datum =data;
+    this.datum =data.response.jsonObjects[0];
   }
 
   cancelEdit(): void {
@@ -65,6 +65,8 @@ export class ResultDialogComponent {
   // }
 
   updateWeightages(changedTestcase: any): void {
+    console.log(this.datum);
+
     const validTestcases = this.datum.testcases.filter((testcase) => typeof testcase.weightage === 'number');
 
     let totalWeightage = validTestcases.reduce(

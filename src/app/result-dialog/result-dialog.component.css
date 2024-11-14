@@ -82,7 +82,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 120%;
-  max-width: 800px;
+  max-width: 1200px;
   max-height: 500px;
   background-color: #fff;
   border: 1px solid #007BFF; /* Blue border */
@@ -215,7 +215,7 @@ button {
 }
 
 .application-modal .modal-content .info-container input.weightage{
-  width: 150px;
+  /* width: 90%; */
   margin-right: -80px;
   padding: 10px;
   border: 1px solid #ccc;

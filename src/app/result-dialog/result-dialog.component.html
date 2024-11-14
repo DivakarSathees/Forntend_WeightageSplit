@@ -4,9 +4,27 @@
   <h2>Edit Testcase</h2>
   <div class="modal-content">
     <div class="info-container">
-      <label>TestCase Name</label>
+      <table>
+        <thead>
+          <tr>
+            <th>TestCase Name</th>
+            <th>Weightage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let testcase of data.response.jsonObjects[0].testcases">
+            <td>{{testcase.name}}</td>
+            <td><input
+              class="weightage" type="number" min="0" max="1"
+              [(ngModel)]="testcase.weightage"
+              (ngModelChange)="updateWeightages(testcase)"
+            /></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <label>TestCase Name</label>
 
-      <div *ngFor="let testcase of data.testcases" class="left">
+      <div *ngFor="let testcase of data.response.jsonObjects[0].testcases" class="left">
         <div>
           <input class="name" [(ngModel)]="testcase.name" readonly/>
         </div>
@@ -15,7 +33,7 @@
     <div class="info-container">
       <label>Weightage</label>
 
-      <div *ngFor="let testcase of data.testcases" class="right">
+      <div *ngFor="let testcase of data.response.jsonObjects[0].testcases" class="right">
         <div>
           <input
             class="weightage" type="number" min="0" max="1"
@@ -23,7 +41,7 @@
             (ngModelChange)="updateWeightages(testcase)"
           />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
