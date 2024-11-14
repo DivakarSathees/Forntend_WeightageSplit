@@ -11,6 +11,7 @@ export class ResultDialogComponent {
   @Output() dataEditedEvent = new EventEmitter(); // New event to pass edited data
 
   editMode: boolean = true;
+  obj: any;
   // datum: any;
   datum = {
     testcases: [
@@ -25,6 +26,9 @@ export class ResultDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {console.log(data.response.jsonObjects[0].testcases);
     console.log(data.response);
+    this.obj = data.response.jsonObjects;
+    console.log(this.obj);
+
 
     this.datum =data.response.jsonObjects[0];
   }
@@ -38,7 +42,10 @@ export class ResultDialogComponent {
   SaveEdit(): void {
     this.closeModalEvent.emit();
     this.editMode = false;
-    this.dataEditedEvent.emit(this.data); // Emit edited data
+    console.log(this.obj);
+
+    // this.dataEditedEvent.emit(this.data.response); // Emit edited data
+    this.dataEditedEvent.emit(this.obj); // Emit edited data
   }
   // updateWeightages(changedTestcase: any): void {
   //   const validTestcases = this.datum.testcases.filter((testcase) => typeof testcase.weightage === 'number');

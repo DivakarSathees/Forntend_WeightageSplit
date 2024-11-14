@@ -11,16 +11,36 @@
             <th>Weightage</th>
           </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
           <tr *ngFor="let testcase of data.response.jsonObjects[0].testcases">
             <td>{{testcase.name}}</td>
             <td><input
               class="weightage" type="number" min="0" max="1"
               [(ngModel)]="testcase.weightage"
-              (ngModelChange)="updateWeightages(testcase)"
+              (ngModelChange)="updateWeightages(testcase)" readonly
             /></td>
           </tr>
+        </tbody> -->
+        <tbody *ngFor="let obj of this.obj">
+          <tr>
+            <td colspan="2"><strong>Evaluation Type: {{ obj.evaluation_type }}</strong></td>
+          </tr>
+          <tr *ngFor="let testcase of obj.testcases">
+            <td>{{ testcase.name }}</td>
+            <td>
+              <input
+                class="weightage"
+                type="number"
+                min="0"
+                max="1"
+                [(ngModel)]="testcase.weightage"
+                (ngModelChange)="updateWeightages(testcase)"
+                readonly
+              />
+            </td>
+          </tr>
         </tbody>
+
       </table>
       <!-- <label>TestCase Name</label>
 

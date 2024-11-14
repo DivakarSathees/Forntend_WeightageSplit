@@ -144,8 +144,8 @@ export class FileUploadComponent {
       }
     });
     dialogRef.componentInstance.dataEditedEvent.subscribe((editedData: any) => {
-      console.log('Edited data:', editedData.response);
-      this.responseText = JSON.stringify(editedData.response, null, 2);
+      console.log('Edited data:', editedData);
+      this.responseText = JSON.stringify(editedData, null, 2);
 
       // Perform any additional actions with the edited data
       // For example, pass it to a JSON viewer
