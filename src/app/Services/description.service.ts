@@ -15,6 +15,7 @@ export class DescriptionService {
   constructor(private http: HttpClient) {}
 
   generateDescription(data: any): Observable<any> {
+    console.log(data);
     return this.http.post(`${this.baseUrl}/api/descriptions/generate`, data, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });

@@ -130,4 +130,23 @@ export class FileExplorerComponent {
       );
     }
   }
+
+  downloadFile() {
+    const fileName = 'dotnetapp.zip'; // Replace with dynamic input if needed
+    this.fileExplorerService.downloadFile().subscribe(
+      (blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      },
+      (error) => {
+        console.error('Download failed:', error);
+      }
+    );
+  }
 }

@@ -23,6 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FileItemComponent } from './components/file-item/file-item.component';
 import { FileExplorerComponent } from './components/file-explorer/file-explorer.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FileExplorerComponent } from './components/file-explorer/file-explorer.
     MatIconModule,
     MatTabsModule,
     MatSidenavModule,
+    QuillModule.forRoot(),
     MonacoEditorModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

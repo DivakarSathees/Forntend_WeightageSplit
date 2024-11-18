@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DescriptionService } from '../Services/description.service';
+// import Quill from "quill";
 import { MatDialog } from '@angular/material/dialog';
 import { SolutionDialogComponent } from '../solution-dialog/solution-dialog.component';
 import { Router } from '@angular/router';
+import Quill from 'quill';
 
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css']
 })
-export class DescriptionComponent {
+export class DescriptionComponent implements OnInit{
   descriptionData = {
     projectType: '',
     complexity: '',
@@ -19,6 +21,7 @@ export class DescriptionComponent {
     operations: '',
     topic: ''
   };
+
 
   solnData ={
     description:''
@@ -32,14 +35,20 @@ export class DescriptionComponent {
   generatedDescription: string = '';
   generatedSoln: string = '';
 
+
   constructor(private descriptionService: DescriptionService, private dialog: MatDialog, private router: Router) {}
 
+  ngOnInit(): void {
+    // Initialize Quill Editor
+
+  }
   onSubmit() {
     this.descriptionService.generateDescription(this.descriptionData).subscribe(
       (response) => {
         console.log(response);
 
         this.generatedDescription = response.description.content;
+        
 
       },
       (error) => {

@@ -13,12 +13,14 @@ interface FileItem {
   providedIn: 'root'
 })
 export class FileExplorerService {
-  // private apiUrl = 'https://backend-descriptiongenerator.onrender.com/api/solutions';
+  // private apiUrl = 'http://localhost:3000/api/solutions';
   private apiUrl = `${environment.baseUrl1}/api/solutions`;
+  private projectType: string | null = null;
 
   constructor(private http: HttpClient) {}
 
   getFiles(projectType: any): Observable<FileItem[]> {
+    this.projectType = projectType;
     // const params = new HttpParams().set('path', `D:/description/OutputSolution/${projectType}`);
     const params = new HttpParams().set('path', `/opt/render/project/src/OutputSolution/${projectType}`);
 console.log(params);
@@ -39,6 +41,12 @@ console.log(params);
   saveFileContent(path: any, content: string): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/saveFileContent`, { path, content }, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
+  downloadFile() {
+    return this.http.get(`http://localhost:3000/api/download/solution?fileName=${this.projectType}`, {
+      responseType: 'blob', // Ensure the response is treated as a binary file
     });
   }
 

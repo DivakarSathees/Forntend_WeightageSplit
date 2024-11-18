@@ -43,6 +43,9 @@
 <div class="desce" *ngIf="generatedDescription">
   <h3>Generated Description:</h3>
   <textarea [(ngModel)]="generatedDescription"rows="5" cols="50"></textarea>
+  <div class="editor-container">
+    <quill-editor [(ngModel)]="generatedDescription"></quill-editor>
+  </div>
   <button (click)="GenrateSoln()" type="submit">Generate Solution Json</button>
 </div>
 
