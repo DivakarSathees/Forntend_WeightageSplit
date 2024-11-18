@@ -15,6 +15,7 @@ interface FileItem {
 export class FileExplorerService {
   // private apiUrl = 'http://localhost:3000/api/solutions';
   private apiUrl = `${environment.baseUrl1}/api/solutions`;
+  private apiUrl1 = `${environment.baseUrl1}/api/download/solution`;
   private projectType: string | null = null;
 
   constructor(private http: HttpClient) {}
@@ -45,7 +46,7 @@ console.log(params);
   }
 
   downloadFile() {
-    return this.http.get(`http://localhost:3000/api/download/solution?fileName=${this.projectType}`, {
+    return this.http.get(`${this.apiUrl1}?fileName=${this.projectType}`, {
       responseType: 'blob', // Ensure the response is treated as a binary file
     });
   }
