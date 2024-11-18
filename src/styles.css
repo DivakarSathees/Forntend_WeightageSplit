@@ -5,3 +5,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+  background-color: #177a96;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+}
+
+button:hover {
+  background-color: #00495d;
+  /* opacity: 0.8; */
+}

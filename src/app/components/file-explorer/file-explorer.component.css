@@ -97,3 +97,8 @@ ngx-monaco-editor {
 mat-sidenav, mat-tab-group, ngx-monaco-editor {
   transition: all 0.3s ease;
 }
+
+.downloadbtn{
+  display: flex;
+  justify-content: space-around;
+}
