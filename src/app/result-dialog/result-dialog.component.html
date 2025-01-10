@@ -34,8 +34,7 @@
                 min="0"
                 max="1"
                 [(ngModel)]="testcase.weightage"
-                (ngModelChange)="updateWeightages(testcase)"
-                readonly
+                (ngModelChange)="updateWeightages(testcase, obj.evaluation_type)"
               />
             </td>
           </tr>
