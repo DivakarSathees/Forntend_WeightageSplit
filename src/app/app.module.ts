@@ -24,6 +24,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FileItemComponent } from './components/file-item/file-item.component';
 import { FileExplorerComponent } from './components/file-explorer/file-explorer.component';
 import { QuillModule } from 'ngx-quill';
+import { ResultAnalyseComponent } from './result-analyse/result-analyse.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { QuillModule } from 'ngx-quill';
     DescriptionComponent,
     SolutionDialogComponent,
     FileItemComponent,
-    FileExplorerComponent
+    FileExplorerComponent,
+    ResultAnalyseComponent
   ],
   imports: [
     BrowserModule,

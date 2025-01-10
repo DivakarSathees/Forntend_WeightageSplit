@@ -1,0 +1,52 @@
+<div>
+  <h2>Upload File to Write shell file & calculate weightage</h2>
+  <!-- <span class="upload-button">Choose File to write TestCases</span> -->
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" class="file-input"/>
+  <br />
+  <!-- delete all records in collections button in right corner -->
+  <!-- <button class="delete-button" (click)="deleteAllRecords()">Delete All Records</button> -->
+
+  <br />
+  <div class="buttons">
+  <button (click)="onUpload()">Upload</button>
+  <button (click)="cancel()">Cancel</button>
+  <!-- <button *ngIf="download" class="download-button" (click)="downloadFile()">Download Zip File</button>
+  <button *ngIf="download && downloadsh" class="download-button" (click)="downloadSHFile()">Download SH File</button> -->
+  </div>
+
+</div>
+
+<div *ngIf="loading">
+  <i class="fa-solid fa-spinner fa-spin-pulse"></i> Loading...
+</div>
+
+<div class="response-container">
+  <h1>{{ message }}</h1>
+  <a [href]="downloadLink" download>Download Excel File</a>
+
+  <h2>Test Case Results</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Test Name</th>
+        <th>Evaluation Type</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let responseItem of responseinJson">
+        <ng-container *ngFor="let tc of responseItem.tcList">
+          <tr>
+            <td>{{ tc.name }}</td>
+            <td>{{ tc.evaluation_type }}</td>
+            <td>{{ tc.result }}</td>
+          </tr>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Problem Statement</h2>
+  <div [innerHTML]="responseinJson[0]?.QuestionData"></div>
+</div>
+

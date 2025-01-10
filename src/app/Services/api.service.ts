@@ -9,12 +9,21 @@ import { environment } from 'src/environments/environment.prod';
 export class ApiService {
   // private baseUrl = "http://localhost:3000"
   private baseUrl = environment.baseUrl;
+  private analyzeUrl = environment.analyzeUrl;
+
   constructor(private http: HttpClient) {}
 
   uploadFile(file: FormData): Observable<any> {
     // localStorage.clear();
     return this.http.post<any>(`${this.baseUrl}/process-zip`,  file );
   }
+
+  uploadexcel(file: FormData): Observable<any> {
+    // localStorage.clear();
+    return this.http.post<any>(`${this.analyzeUrl}/get-analysis`,  file );
+  }
+
+
 
   uploadTestFile(file: File, httptest: boolean): Observable<any> {
     const formData: FormData = new FormData();
