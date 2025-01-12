@@ -81,7 +81,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
+  width: 44%;
   max-width: 1200px;
   max-height: 500px;
   background-color: #fff;
@@ -190,13 +190,19 @@ button {
 
 
 .application-modal .modal-content {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .application-modal .modal-content .info-container {
-  width: 100%; /* Adjust as needed */
+  /* width: 100%;  */
 }
 
 .application-modal .modal-content .info-container label {

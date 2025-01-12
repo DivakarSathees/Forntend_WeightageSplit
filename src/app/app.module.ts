@@ -25,6 +25,9 @@ import { FileItemComponent } from './components/file-item/file-item.component';
 import { FileExplorerComponent } from './components/file-explorer/file-explorer.component';
 import { QuillModule } from 'ngx-quill';
 import { ResultAnalyseComponent } from './result-analyse/result-analyse.component';
+import { TcListComponent } from './modal/tc-list/tc-list.component';
+import { QuestionDataComponent } from './modal/question-data/question-data.component';
+import { AnalysisModalComponent } from './modal/analysis-modal/analysis-modal.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { ResultAnalyseComponent } from './result-analyse/result-analyse.componen
     SolutionDialogComponent,
     FileItemComponent,
     FileExplorerComponent,
-    ResultAnalyseComponent
+    ResultAnalyseComponent,
+    TcListComponent,
+    QuestionDataComponent,
+    AnalysisModalComponent
   ],
   imports: [
     BrowserModule,

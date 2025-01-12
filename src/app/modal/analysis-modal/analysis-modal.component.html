@@ -1,0 +1,24 @@
+
+<div *ngIf="editMode" class="application-modal">
+  <div class="cross">
+  <button type="button" id="cross" (click)="cancelEdit()">X</button>
+  </div>
+
+
+  <h2 style="text-align: center;">Analysis</h2>
+  <div class="modal-content">
+    <div class="info-container">
+      <div style="justify-content: left; display: flex;">
+        <!-- <div [innerHTML]="obj"></div> -->
+        <!-- <pre>{{obj}}</pre> -->
+        <textarea class="area" readonly
+          [value]="obj"
+          [rows]="22"
+          cols="200">
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+
+</div>

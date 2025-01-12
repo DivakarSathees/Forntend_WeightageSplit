@@ -57,7 +57,7 @@ select {
 
 /* Style for the custom file input button */
 .custom-file-button {
-  background-color: #007bff;
+  background-color: #00495d;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -101,7 +101,7 @@ button:hover {
 
 /* Style for the drag and drop container when dragging over */
 .drag-and-drop-container.drag-over {
-  border-color: #007bff;
+  border-color: #00495d;
   background-color: #f8f8f8;
 }
 

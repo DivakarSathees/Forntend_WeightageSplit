@@ -81,7 +81,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
+  width: 44%;
   max-width: 1200px;
   max-height: 500px;
   background-color: #fff;
@@ -89,8 +89,8 @@ button {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  text-align: center; /* Center-align content within the modal */
+  /* z-index: 9999; */
+  /* text-align: center; */
   overflow-y: auto;
   /* Additional styles */
 }
@@ -146,19 +146,24 @@ button {
 }
 
 /* Style for form buttons */
-.application-modal button {
-  background-color: #00495d;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+.application-modal button#cross {
+  /* background-color: #00495d;
+  /* color: #fff; */
+  display: flex;
+    padding: unset;
+    font-size: large;
+    color: red;
+    background-color: white;
+    position: absolute;
 }
 
-.application-modal button:hover {
+.cross{
+  display: flex;
+  flex-direction: row-reverse;
+  position: static;
+}
+
+.application-modal button #cross:hover {
   background-color: #0056b3;
 }
 
@@ -190,13 +195,19 @@ button {
 
 
 .application-modal .modal-content {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .application-modal .modal-content .info-container {
-  width: 100%; /* Adjust as needed */
+  /* width: 100%;  */
 }
 
 .application-modal .modal-content .info-container label {
@@ -222,6 +233,29 @@ button {
   border-radius: 5px;
   margin-top: 5px;
   font-size: 16px;
+}
+
+.area{
+  border: none;
+  /* font-size: larger; */
+}
+
+textarea {
+  width: 100%; /* Default width */
+  max-width: 600px;
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  textarea {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  textarea {
+    width: 100%;
+  }
 }
 
 .application-modal .modal-content .info-container.left {

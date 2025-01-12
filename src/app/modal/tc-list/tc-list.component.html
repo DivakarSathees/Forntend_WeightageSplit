@@ -1,0 +1,40 @@
+
+<div *ngIf="editMode" class="application-modal">
+
+  <h2>Testcase Result</h2>
+  <div class="modal-content">
+    <div class="info-container">
+      <table>
+        <thead>
+          <tr>
+            <th>TestCase Name</th>
+            <th>Evaluation Type</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let obj of this.obj">
+          <tr>
+            <!-- <tr *ngFor="let testcase of obj"> -->
+            <td style="justify-content: left; display: flex;">{{ obj.name }}</td>
+            <td>{{ obj.evaluation_type }}</td>
+            <td>{{ obj.result }}</td>
+            <!-- <td>
+              <input
+                class="weightage"
+                type="number"
+                min="0"
+                max="1"
+                [(ngModel)]="testcase.weightage"
+              />
+            </td> -->
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+
+  <button type="button" (click)="cancelEdit()">Cancel</button>
+  <!-- <button type="button" (click)="SaveEdit()">Generate JSON</button> -->
+</div>
