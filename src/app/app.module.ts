@@ -28,6 +28,8 @@ import { ResultAnalyseComponent } from './result-analyse/result-analyse.componen
 import { TcListComponent } from './modal/tc-list/tc-list.component';
 import { QuestionDataComponent } from './modal/question-data/question-data.component';
 import { AnalysisModalComponent } from './modal/analysis-modal/analysis-modal.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { AnalysisModalComponent } from './modal/analysis-modal/analysis-modal.co
     MatIconModule,
     MatTabsModule,
     MatSidenavModule,
+    MatPaginatorModule,
+    MatTableModule,
     QuillModule.forRoot(),
     MonacoEditorModule.forRoot()
   ],

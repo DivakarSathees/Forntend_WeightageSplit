@@ -13,6 +13,19 @@ h2 {
   margin-top: 20px;
 }
 
+.downbtn{
+  display: flex;
+  justify-content: space-between;
+}
+.download{
+  background-color: #1e7e34;
+  margin: auto 84px;
+  display: flex;
+  align-items: baseline;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
 .file-input {
   display: block;
   /* margin: 20px 0px 20px auto; */
@@ -85,6 +98,40 @@ button {
   border-radius: 4px;
 }
 
+
+.error {
+  margin: -153px 31px 13px 1143px;
+
+  background-color: #ecbbbb;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 20%;
+  /* justify-content: center; */
+  box-shadow: 0 4px 8px rgb(223 107 107);
+  font-size: 16px;
+  color: #bc0000;
+  z-index: 10;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+}
+.process {
+  margin: -214px 31px 13px 1143px;
+
+  background-color: #bbecc5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 20%;
+  /* justify-content: center; */
+  box-shadow: 0 4px 8px rgb(107 223 123);
+  font-size: 16px;
+  color: #249200;
+  z-index: 10;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+}
+
 .file-label:hover .tooltip {
   display: block;
 }
@@ -94,15 +141,18 @@ button {
   background-color: #00495dba;
 } */
 
-button:active {
+/* button:active {
   background-color: #003f7f;
+} */
+.spinner{
+  display: flex;
+  justify-content: center;
 }
-
 /* Loading Spinner */
 .fa-spinner {
   font-size: 24px;
   color: #00495d;
-  display: block;
+  /* display: block; */
   text-align: center;
   margin: 20px auto;
 }
@@ -111,6 +161,7 @@ button:active {
 .response-container {
   text-align: center;
   margin-top: 30px;
+  padding: 0px 99px 30px 51px;
 }
 
 .response-container h1 {
@@ -122,15 +173,16 @@ button:active {
 .response-container a {
   text-decoration: none;
   color: #fff;
-  background-color: #28a745;
-  padding: 10px 20px;
+  cursor: pointer;
+  /* background-color: #177a96; */
+  /* padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; */
 }
 
-.response-container a:hover {
-  background-color: #1e7e34;
-}
+/* .response-container a:hover {
+  background-color: #00495d;
+} */
 
 /* Table Styling */
 .table {
@@ -141,26 +193,29 @@ button:active {
   background-color: #ffffff;
 }
 
-.table thead {
+.table th {
   background-color: #00495d;
   color: #fff;
 }
 
-.table thead th {
+.table th {
   padding: 10px;
   text-align: center;
 }
 
-.table tbody td {
+.table td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  width: 0px;
 }
 
 .table tbody tr:hover {
   background-color: #f1f1f1;
 }
 
-.table tbody td a {
+.table td a {
   color: #00495d;
   text-decoration: none;
 }

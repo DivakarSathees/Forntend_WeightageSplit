@@ -1,5 +1,5 @@
 <div>
-  <h2>Upload Excel file Analyse</h2>
+  <h2>Upload Excel file to Analyse</h2>
 
   <!-- <input type="file" id="fileInput" (change)="onFileSelected($event)" class="file-input"/>
   <div class="buttons">
@@ -39,17 +39,33 @@
   <button (click)="cancel()">Cancel</button>
  </div>
 
-<div *ngIf="loading">
+<div class="spinner" *ngIf="loading">
   <i class="fa-solid fa-spinner fa-spin-pulse"></i>
 </div>
+<div *ngIf="mess">
+  <p class="process" *ngIf="processMessage">{{processMessage}}</p>
+<!-- </div> -->
+<!-- <div class="error" > -->
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</div>
+
 
 <div *ngIf="table" class="response-container">
   <!-- <a [href]=`http://localhost:8081/download/${678417fdc19cabab646e8b94}` download>Download Excel File</a> -->
-  <button (click)="downloadFile(fileId)">Download File</button>
+
+  <div class="downbtn">
+    <mat-paginator
+    [length]="responseinJson.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[2, 10, 20]"
+    (page)="onPageChange($event)">
+    </mat-paginator>
+    <a class="download" (click)="downloadFile(fileId)">Download Excel &nbsp;
+    <i class="fa-solid fa-download fa-bounce fa-lg" style="color: #ffffff;"></i></a>
+  </div>
 
 
-
-<table  class="table">
+<!-- <table  class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -66,31 +82,99 @@
     <tr *ngFor="let item of responseinJson">
       <td>{{ item.name }}</td>
       <td *ngIf="item.test_Id; else blankCell">
-        <a [href]="item.test_Id" target="_blank">Link</a>
+
+        <a [href]="item.test_Id" target="_blank"><i class="fa-regular fa-face-frown fa-shake" style="color: #961717; font-size: x-large;"></i></a>
       </td>
       <ng-template #blankCell>
         <td></td>
       </ng-template>
       <td>
-        <button (click)="openModal(item.tcList)">
-          View TC List
-        </button>
+        <a (click)="openModal(item.tcList)">
+          <i class="fa-solid fa-square-check" style="color: #177a96; font-size: x-large;"></i>
+          <i class="fa-solid fa-square-xmark" style="color: #177a96; font-size: x-large;"></i>
+        </a>
       </td>
       <td>
-        <button (click)="openQuestionModal(item.QuestionData)">
-        Question Data
-        </button>
+        <a (click)="openQuestionModal(item.QuestionData)">
+        <i class="fa-solid fa-file-circle-question" style="color: #177a96; font-size: x-large;"></i>
+        </a>
       </td>
       <td>
-        <button (click)="openAnalysisModal(item.aiAnalysis)">
-        Analysis Data
-        </button>
+        <a (click)="openAnalysisModal(item.aiAnalysis)">
+        <i class="fa-solid fa-chart-line" style="color: #177a96; font-size: x-large;"></i>
+        </a>
       </td>
       <td>{{item.Test_Submitted_Time}}</td>
       <td>{{item.SonarAddedTime}}</td>
       <td>{{item.Differnce_In_Submission}}</td>
     </tr>
   </tbody>
+</table> -->
+<table class="table" mat-table [dataSource]="paginatedData">
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef>Name</th>
+    <td  *matCellDef="let item">{{ item.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="testId">
+    <th *matHeaderCellDef>Test ID</th>
+    <td  *matCellDef="let item">
+      <a *ngIf="item.test_Id" [href]="item.test_Id" target="_blank">
+        <i class="fa-regular fa-face-frown fa-shake" style="color: #961717; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="testCases">
+    <th *matHeaderCellDef>TestCases</th>
+    <td  *matCellDef="let item">
+      <a (click)="openModal(item.tcList)">
+        <i class="fa-solid fa-square-check" style="color: #177a96; font-size: x-large;"></i>
+        <i class="fa-solid fa-square-xmark" style="color: #177a96; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="questionData">
+    <th *matHeaderCellDef>Question Data</th>
+    <td  *matCellDef="let item">
+      <a (click)="openQuestionModal(item.QuestionData)">
+        <i class="fa-solid fa-file-circle-question" style="color: #177a96; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="analysis">
+    <th *matHeaderCellDef>Analysis</th>
+    <td  *matCellDef="let item">
+      <a (click)="openAnalysisModal(item.aiAnalysis)">
+        <i class="fa-solid fa-chart-line" style="color: #177a96; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="testSubmittedTime">
+    <th *matHeaderCellDef>Test Submitted Time</th>
+    <td  *matCellDef="let item">{{ item.Test_Submitted_Time }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="sonarAddedTime">
+    <th *matHeaderCellDef>Sonar Added Time</th>
+    <td  *matCellDef="let item">{{ item.SonarAddedTime }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="differenceInSubmission">
+    <th *matHeaderCellDef>Difference In Submission</th>
+    <td  *matCellDef="let item">{{ item.Differnce_In_Submission }}</td>
+  </ng-container>
+
+  <!-- Header Row -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Data Rows -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+</div>
 
 
