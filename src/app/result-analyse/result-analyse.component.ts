@@ -118,6 +118,13 @@ export class ResultAnalyseComponent  implements OnInit {
     }, 3000); // 10000ms = 10 seconds
   }
 
+  Back(){
+    this.table = false
+  }
+  Next(){
+    this.table = true
+  }
+
   onUpload(): void {
     localStorage.setItem('email', this.email);
     localStorage.setItem('password', this.password);

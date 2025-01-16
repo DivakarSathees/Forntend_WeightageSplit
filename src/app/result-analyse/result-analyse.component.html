@@ -1,4 +1,5 @@
-<div class="analysis-options">
+<div *ngIf="!table" class="analysis-options">
+  <a *ngIf="fileId" (click)="Next()"><i class="fa-solid fa-arrow-left fa-flip-horizontal fa-xl" style="color: #005269;"></i></a>
   <div class="authentication-container">
     <h2>Choose Login Method</h2>
 
@@ -124,7 +125,7 @@
 
 <div *ngIf="table" class="response-container">
   <!-- <a [href]=`http://localhost:8081/download/${678417fdc19cabab646e8b94}` download>Download Excel File</a> -->
-
+  <a (click)="Back()"><i class="fa-solid fa-arrow-left fa-xl" style="color: #005269;"></i></a>
   <div class="downbtn">
     <mat-paginator
     [length]="responseinJson.length"

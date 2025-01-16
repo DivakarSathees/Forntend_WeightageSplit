@@ -25,6 +25,9 @@ h2 {
   padding: 15px 20px;
   border-radius: 5px;
 }
+a{
+  cursor: pointer;
+}
 
 .file-input {
   display: block;
@@ -182,7 +185,7 @@ button {
 
 /* Response Container */
 .response-container {
-  text-align: center;
+  /* text-align: center; */
   margin-top: 30px;
   padding: 0px 99px 30px 51px;
 }
