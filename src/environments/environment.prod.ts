@@ -3,5 +3,6 @@ export const environment = {
   baseUrl: 'https://backend-weightagesplit.onrender.com',
   baseUrl1: 'https://backend-descriptiongenerator.onrender.com',
   analyzeUrl: 'https://backend-projectanalyzer.onrender.com'
+  // analyzeUrl: 'http://localhost:8081'
 };
 

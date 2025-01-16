@@ -20,6 +20,7 @@ export class ApiService {
 
   uploadexcel(file: FormData): Observable<any> {
     // localStorage.clear();
+    console.log(file);
     return this.http.post<any>(`${this.analyzeUrl}/get-analysis`,  file );
   }
 

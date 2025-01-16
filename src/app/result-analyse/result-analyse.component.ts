@@ -28,6 +28,8 @@ export class ResultAnalyseComponent {
   errorMessage = ''
   processMessage = ''
   mess = false;
+  analysisType: string = ''; // To store the selected analysis type
+
 
   displayedColumns: string[] = [
     'name',
@@ -47,6 +49,13 @@ export class ResultAnalyseComponent {
     console.log(this.fileToUpload.name);
     this.filename = this.fileToUpload.name;
   }
+
+  onAnalysisTypeChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.analysisType = input.value;
+    console.log('Selected Analysis Type:', this.analysisType);
+  }
+
 
   cancel(): void {
     // refresh the page
@@ -82,20 +91,20 @@ export class ResultAnalyseComponent {
       setTimeout(() => {
         this.errorMessage = '';
       this.mess = false
-      }, 3000); // 10 seconds
+      }, 300000); // 10 seconds
       return;
     }
       this.loading = true; // Show loading indicator when request is made
       if (this.fileToUpload) {
         const formData = new FormData();
         formData.append('file', this.fileToUpload);
+        formData.append('analysisType', this.analysisType);
         // Set up headers to indicate form data
         const headers = new HttpHeaders();
         headers.set('enctype', 'multipart/form-data');
         console.log(formData);
 
         // this.showProcess("Analysis is InProcess...");
-
 
         this.apiSerivce.uploadexcel(formData).subscribe(
           (response) => {
@@ -124,7 +133,15 @@ export class ResultAnalyseComponent {
           },
           (error) => {
             console.error('Upload failed:', error.error.error);
+            console.log(error.error.error);
+
             this.errorMessage = error.error.error;
+            this.mess = true
+
+            // setTimeout(() => {
+            //   this.errorMessage = '';
+            // this.mess = false
+            // }, 3000);
             this.showError(this.errorMessage);
 
           // this.download = false;

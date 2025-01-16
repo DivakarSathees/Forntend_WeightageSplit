@@ -1,4 +1,4 @@
-<div>
+<div class="analysis-options">
   <h2>Upload Excel file to Analyse</h2>
 
   <!-- <input type="file" id="fileInput" (change)="onFileSelected($event)" class="file-input"/>
@@ -32,12 +32,27 @@
 </label>
 </div>
 
+<div class="radioOptions">
+  <!-- <h3>Select Analysis Type</h3> -->
+  <label>
+    <input type="radio" name="analysisType" value="short" (change)="onAnalysisTypeChange($event)" />
+    Analyze in 2 to 3 sentences
+  </label>
+  <br />
+  <label>
+    <input type="radio" name="analysisType" value="detailed" (change)="onAnalysisTypeChange($event)" />
+    Detailed Analysis
+  </label>
 
 </div>
 <div class="buttons">
   <button (click)="onUpload()">Upload</button>
   <button (click)="cancel()">Cancel</button>
  </div>
+</div>
+
+
+
 
 <div class="spinner" *ngIf="loading">
   <i class="fa-solid fa-spinner fa-spin-pulse"></i>
@@ -48,6 +63,7 @@
 <!-- <div class="error" > -->
   <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 </div>
+
 
 
 <div *ngIf="table" class="response-container">
@@ -129,8 +145,8 @@
     <th *matHeaderCellDef>TestCases</th>
     <td  *matCellDef="let item">
       <a (click)="openModal(item.tcList)">
-        <i class="fa-solid fa-square-check" style="color: #177a96; font-size: x-large;"></i>
-        <i class="fa-solid fa-square-xmark" style="color: #177a96; font-size: x-large;"></i>
+        <i class="fa-solid fa-square-check" style="color: #1cac1c94; font-size: x-large;"></i>
+        <i class="fa-solid fa-square-xmark" style="color: #c11f1f8c; font-size: x-large;"></i>
       </a>
     </td>
   </ng-container>
@@ -148,7 +164,7 @@
     <th *matHeaderCellDef>Analysis</th>
     <td  *matCellDef="let item">
       <a (click)="openAnalysisModal(item.aiAnalysis)">
-        <i class="fa-solid fa-chart-line" style="color: #177a96; font-size: x-large;"></i>
+        <i class="fa-solid fa-chart-line" style="color: #249a35; font-size: x-large;"></i>
       </a>
     </td>
   </ng-container>

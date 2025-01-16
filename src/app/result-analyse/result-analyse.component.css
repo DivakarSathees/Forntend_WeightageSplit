@@ -98,15 +98,39 @@ button {
   border-radius: 4px;
 }
 
+.process, .error {
+  position: fixed; /* Fix position relative to the viewport */
+  top: 70px; /* Below the spinner */
+  right: 20px; /* Align with spinner */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border: 1px solid #dee2e6; /* Light border for structure */
+  border-radius: 8px; /* Smooth, rounded corners */
+  padding: 10px 15px; /* Comfortable inner padding */
+  font-family: 'Arial', sans-serif; /* Clean font */
+  font-size: 14px; /* Standard font size */
+  max-width: 300px; /* Constrain message width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 999; /* Ensure it appears above most elements */
+}
+
+.process {
+  color: #28a745; /* Green color for process message */
+  border-left: 5px solid #28a745; /* Left border for visual distinction */
+}
 
 .error {
-  margin: -153px 31px 13px 1143px;
+  color: #dc3545; /* Red color for error message */
+  border-left: 5px solid #dc3545; /* Left border for visual distinction */
+}
 
-  background-color: #ecbbbb;
+/*
+.error {
+  margin: -351px 110px 13px 1230px;
+
+  background-color: #ecbbbb66;
   border: 1px solid #ccc;
   padding: 10px;
   width: 20%;
-  /* justify-content: center; */
   box-shadow: 0 4px 8px rgb(223 107 107);
   font-size: 16px;
   color: #bc0000;
@@ -122,7 +146,6 @@ button {
   border: 1px solid #ccc;
   padding: 10px;
   width: 20%;
-  /* justify-content: center; */
   box-shadow: 0 4px 8px rgb(107 223 123);
   font-size: 16px;
   color: #249200;
@@ -130,7 +153,7 @@ button {
   border-radius: 4px;
   display: flex;
   justify-content: center;
-}
+} */
 
 .file-label:hover .tooltip {
   display: block;
@@ -245,4 +268,53 @@ button {
 
 .btn-primary:hover {
   background-color: #00495dba;
+}
+
+.analysis-options {
+  background-color: #177a9614; /* Light gray background */
+  border: 1px solid #177a9629; /* Light border for structure */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  max-width: 400px; /* Constrain the width */
+  margin: 20px auto; /* Center it on the page */
+  box-shadow: 0 4px 6px rgb(23 122 150 / 32%); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif; /* Clean, modern font */
+}
+
+.analysis-options h3 {
+  color: #343a40; /* Dark gray for the heading */
+  font-size: 1.5rem; /* Slightly larger font for the heading */
+  margin-bottom: 15px; /* Space below the heading */
+  text-align: center; /* Center the heading */
+}
+
+.analysis-options label {
+  display: block; /* Ensure labels are on separate lines */
+  margin-bottom: 10px; /* Space between each option */
+  font-size: 1rem; /* Standard font size for labels */
+  color: #495057; /* Slightly darker gray for text */
+  cursor: pointer; /* Pointer cursor for better UX */
+  transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.analysis-options label:hover {
+  color: #177a96; /* Change text color to blue on hover */
+}
+
+.analysis-options input[type="radio"] {
+  margin-right: 10px; /* Space between the radio button and text */
+  transform: scale(1.2); /* Slightly larger radio button */
+  cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.analysis-options input[type="radio"]:checked + label {
+  font-weight: bold; /* Highlight the selected option */
+  color: #007bff; /* Blue color for the selected option */
+}
+
+.radioOptions{
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  padding: 26px 23px 9px 37px;
 }
