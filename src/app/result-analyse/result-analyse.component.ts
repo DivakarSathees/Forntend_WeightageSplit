@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TcListComponent } from '../modal/tc-list/tc-list.component';
@@ -6,14 +6,35 @@ import { MatDialog } from '@angular/material/dialog';
 import { QuestionDataComponent } from '../modal/question-data/question-data.component';
 import { AnalysisModalComponent } from '../modal/analysis-modal/analysis-modal.component';
 import { PageEvent } from '@angular/material/paginator';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'app-result-analyse',
   templateUrl: './result-analyse.component.html',
-  styleUrls: ['./result-analyse.component.css']
+  styleUrls: ['./result-analyse.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      state(
+        'void',
+        style({
+          opacity: 0,
+          transform: 'translateX(0px)',
+        })
+      ),
+      state(
+        '*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)',
+        })
+      ),
+      transition(':enter', [animate('500ms ease-in')]),
+      transition(':leave', [animate('0ms ease-out')]),
+    ]),
+  ],
 })
-export class ResultAnalyseComponent {
+export class ResultAnalyseComponent  implements OnInit {
   fileToUpload: File | null = null;
   filename: string = '';
   loading = false;
@@ -28,8 +49,11 @@ export class ResultAnalyseComponent {
   errorMessage = ''
   processMessage = ''
   mess = false;
+  authType = "credentials"
   analysisType: string = ''; // To store the selected analysis type
-
+  email: string = ''; // For email input
+  password: string = ''; // For password input
+  token: string = ''; // For token input
 
   displayedColumns: string[] = [
     'name',
@@ -44,10 +68,21 @@ export class ResultAnalyseComponent {
 
   constructor(private http: HttpClient, private apiSerivce: ApiService, private dialog: MatDialog) {}
 
+  ngOnInit() {
+    // Load saved values from localStorage
+    this.email = localStorage.getItem('email') || '';
+    this.password = localStorage.getItem('password') || '';
+    this.token = localStorage.getItem('token') || '';
+    this.authType = localStorage.getItem('authType') || 'credentials';
+  }
+
   onFileSelected(event: any): void {
     this.fileToUpload = event.target.files[0] as File;
     console.log(this.fileToUpload.name);
     this.filename = this.fileToUpload.name;
+  }
+  onAuthTypeChange(type: string) {
+    this.authType = type;
   }
 
   onAnalysisTypeChange(event: Event): void {
@@ -84,6 +119,9 @@ export class ResultAnalyseComponent {
   }
 
   onUpload(): void {
+    localStorage.setItem('email', this.email);
+    localStorage.setItem('password', this.password);
+    localStorage.setItem('token', this.token);
     if (!this.fileToUpload){
       this.errorMessage = 'Please select a file before uploading.';
       this.mess = true
@@ -91,14 +129,18 @@ export class ResultAnalyseComponent {
       setTimeout(() => {
         this.errorMessage = '';
       this.mess = false
-      }, 300000); // 10 seconds
+      }, 3000); // 10 seconds
       return;
     }
+
       this.loading = true; // Show loading indicator when request is made
       if (this.fileToUpload) {
         const formData = new FormData();
         formData.append('file', this.fileToUpload);
         formData.append('analysisType', this.analysisType);
+        formData.append('email', this.email);
+        formData.append('password', this.password);
+        formData.append('token', this.token);
         // Set up headers to indicate form data
         const headers = new HttpHeaders();
         headers.set('enctype', 'multipart/form-data');
