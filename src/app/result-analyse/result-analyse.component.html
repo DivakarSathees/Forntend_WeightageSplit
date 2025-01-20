@@ -226,6 +226,24 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="logData">
+    <th *matHeaderCellDef>Log Data</th>
+    <td  *matCellDef="let item">
+      <a (click)="openLogListModal(item.log)">
+        <i class="fa-solid fa-clock-rotate-left fa-spin fa-spin-reverse" style="color: #177a96; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="solution">
+    <th *matHeaderCellDef>Solution</th>
+    <td  *matCellDef="let item">
+      <a (click)="openSolutionModal(item.codeComponents)">
+        <i class="fa-solid fa-clock-rotate-left fa-spin fa-spin-reverse" style="color: #177a96; font-size: x-large;"></i>
+      </a>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="testSubmittedTime">
     <th *matHeaderCellDef>Test Submitted Time</th>
     <td  *matCellDef="let item">{{ item.Test_Submitted_Time }}</td>

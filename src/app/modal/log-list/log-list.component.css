@@ -1,0 +1,91 @@
+.application-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.application-modal h2 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.info-container {
+  margin: 20px 0;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.log-table th,
+.log-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.log-table th {
+  background-color: #00323f;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-bottom: 2px solid #00caff;
+}
+
+.log-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.log-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.log-table td {
+  font-size: 0.9rem;
+  color: #333;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.log-table tr:hover {
+  background-color: #e3faff;
+}
+
+button {
+  display: block;
+  width: 120px;
+  margin: 20px auto 0;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #00323f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005c73;
+}
+
+button:active {
+  background-color: #009fc7;
+}

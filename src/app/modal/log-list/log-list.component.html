@@ -1,0 +1,30 @@
+
+<div *ngIf="editMode" class="application-modal">
+
+  <h2>Testcases Log</h2>
+  <div class="modal-content">
+    <div class="info-container">
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th>TestCase Name</th>
+            <th>Error Message</th>
+          </tr>
+        </thead>
+        <tbody >
+
+          <tr *ngFor="let test of failed">
+              <td style="justify-content: left; display: flex;">{{ test.testName }}</td>
+              <!-- <td>Failed</td> -->
+              <td>{{ test.errorMessage }}</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+
+  <button type="button" (click)="cancelEdit()">Cancel</button>
+</div>

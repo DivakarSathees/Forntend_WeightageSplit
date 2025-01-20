@@ -30,6 +30,9 @@ import { QuestionDataComponent } from './modal/question-data/question-data.compo
 import { AnalysisModalComponent } from './modal/analysis-modal/analysis-modal.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { LogListComponent } from './modal/log-list/log-list.component';
+import { SolutionModalComponent } from './modal/solution-modal/solution-modal.component';
+import { FileTreeComponent } from './components/file-tree/file-tree.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { MatTableModule } from '@angular/material/table';
     ResultAnalyseComponent,
     TcListComponent,
     QuestionDataComponent,
-    AnalysisModalComponent
+    AnalysisModalComponent,
+    LogListComponent,
+    SolutionModalComponent,
+    FileTreeComponent
   ],
   imports: [
     BrowserModule,

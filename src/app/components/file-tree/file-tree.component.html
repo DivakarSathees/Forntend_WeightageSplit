@@ -1,0 +1,84 @@
+<!--
+   <div class="container">
+      <ul>
+        <li *ngFor="let item of data">
+          <div *ngIf="item.type === 'directory'" class="directory" (click)="toggleDirectory(item)">
+            📂 {{ item.name }}
+          </div>
+          <ul *ngIf="item.type === 'directory' && item.isOpen">
+            <app-file-tree [data]="item.contents"></app-file-tree>
+          </ul>
+          <div *ngIf="item.type === 'file'" class="file" (click)="selectFile(item)">
+            📄 {{ item.name }}
+          </div>
+        </li>
+      </ul>
+    <div class="code-container" *ngIf="selectedFile">
+      <h3>{{ selectedFile.name }}</h3>
+      <pre><code>{{ selectedFile.code }}</code></pre>
+    </div>
+  </div>
+
+ -->
+<div *ngIf="back" class="modal-container">
+
+ <div  class="container">
+  <div  class="back-button" (click)="toggleBackDirectory()">
+    ⬅️
+  </div>
+  <!-- File structure on the left -->
+  <div class="file-structure">
+    <ul >
+      <li  *ngFor="let item of data">
+        <div *ngIf="item.type === 'directory'" class="directory" (click)="toggleDirectory(item)">
+          📂 {{ item.name }}
+        </div>
+        <ul *ngIf="item.type === 'directory' && item.isOpen">
+          <app-file-tree [data]="item.contents"></app-file-tree>
+        </ul>
+        <div *ngIf="item.type === 'file'" class="file" (click)="selectFile(item)">
+          📄 {{ item.name }}
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+
+
+  <!-- Code container on the right -->
+  <div class="code-container" *ngIf="selectedFile">
+    <h3>{{ selectedFile.name }}</h3>
+    <pre><code>{{ selectedFile.code }}</code></pre>
+  </div>
+</div>
+</div>
+
+
+  <!-- <div class="container">
+    <div class="file-structure">
+      <ul class="tree-view">
+        <li *ngFor="let item of data">
+          <div class="tree-item">
+            <span *ngIf="item.type === 'directory'" class="directory" (click)="toggleDirectory(item)">
+              📂 {{ item.name }}
+            </span>
+            <ul *ngIf="item.type === 'directory' && item.isOpen">
+              <li *ngFor="let subItem of item.contents">
+                <app-file-tree [data]="[subItem]"></app-file-tree>
+              </li>
+            </ul>
+            <span *ngIf="item.type === 'file'" class="file" (click)="selectFile(item)">
+              📄 {{ item.name }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="code-container" *ngIf="selectedFile">
+      <h3>{{ selectedFile.name }}</h3>
+      <pre><code>{{ selectedFile.code }}</code></pre>
+    </div>
+  </div>
+</div> -->
