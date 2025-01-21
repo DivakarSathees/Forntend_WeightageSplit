@@ -229,7 +229,7 @@
   <ng-container matColumnDef="logData">
     <th *matHeaderCellDef>Log Data</th>
     <td  *matCellDef="let item">
-      <a (click)="openLogListModal(item.log)">
+      <a *ngIf="item.log?.length > 0"(click)="openLogListModal(item.log)">
         <i class="fa-solid fa-clock-rotate-left fa-spin fa-spin-reverse" style="color: #177a96; font-size: x-large;"></i>
       </a>
     </td>
@@ -238,7 +238,7 @@
   <ng-container matColumnDef="solution">
     <th *matHeaderCellDef>Solution</th>
     <td  *matCellDef="let item">
-      <a (click)="openSolutionModal(item.codeComponents)">
+      <a *ngIf="item.codeComponents?.length > 0" (click)="openSolutionModal(item.codeComponents)">
         <i class="fa-regular fa-file-code" style="color: #177a96; font-size: x-large;"></i>
       </a>
     </td>

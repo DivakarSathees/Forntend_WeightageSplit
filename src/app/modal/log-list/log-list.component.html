@@ -4,7 +4,7 @@
   <h2>Testcases Log</h2>
   <div class="modal-content">
     <div class="info-container">
-      <table class="log-table">
+      <table *ngIf="failedLog" class="log-table">
         <thead>
           <tr>
             <th>TestCase Name</th>
@@ -22,9 +22,26 @@
         </tbody>
 
       </table>
+      <table *ngIf="compilationError" class="log-table2">
+        <thead>
+          <tr>
+            <th>Compilation Error</th>
+          </tr>
+        </thead>
+        <tbody >
+
+          <tr *ngFor="let test of obj">
+              <td style="justify-content: left; display: flex;">{{ test }}</td>
+              <!-- <td>Failed</td> -->
+          </tr>
+
+        </tbody>
+
+      </table>
     </div>
   </div>
 
 
-  <button type="button" (click)="cancelEdit()">Cancel</button>
+  <button class="button" *ngIf="failedLog" type="button" (click)="cancelEdit()">Close</button>
+  <button class="button2" *ngIf="compilationError" type="button" (click)="cancelEdit()">Close</button>
 </div>

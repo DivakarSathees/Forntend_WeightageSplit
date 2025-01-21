@@ -26,6 +26,8 @@ export class LogListComponent {
   datum: Evaluation[] = []; // Define datum as an array of Evaluation objects
   failed: FailedTest[] = [];
   editMode: boolean = true;
+  failedLog = false;
+  compilationError = false;
   obj: any;
 
   constructor(
@@ -35,7 +37,12 @@ export class LogListComponent {
     console.log(data.response);
     this.obj = JSON.parse(data.response);
     console.log(this.obj);
-    this.failed = Object.values(this.obj.failed) as FailedTest[];
+    this.failed = this.obj.failed as FailedTest[];
+    if(this.failed != undefined){
+      this.failedLog=true
+    } else{
+      this.compilationError = true;
+    }
     console.log(this.failed);
 
 
