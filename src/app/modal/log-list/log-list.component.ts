@@ -1,20 +1,11 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, Inject, ViewChild, ElementRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
-interface Testcase {
-  name: string;
-  weightage: number;
-}
-
-interface Evaluation {
-  evaluation_type: string;
-  testcases: Testcase[];
-}
 
 interface FailedTest {
   testName: string;
   errorMessage: string;
 }
+
 @Component({
   selector: 'app-log-list',
   templateUrl: './log-list.component.html',
@@ -23,46 +14,81 @@ interface FailedTest {
 export class LogListComponent {
   @Output() closeModalEvent = new EventEmitter();
   @Output() dataEditedEvent = new EventEmitter(); // New event to pass edited data
-  datum: Evaluation[] = []; // Define datum as an array of Evaluation objects
   failed: FailedTest[] = [];
+  errors: string[] = [];
   editMode: boolean = true;
   failedLog = false;
   compilationError = false;
-  obj: any;
 
   constructor(
     public dialogRef: MatDialogRef<LogListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data.response);
-    this.obj = JSON.parse(data.response);
-    console.log(this.obj);
-    this.failed = this.obj.failed as FailedTest[];
-    if(this.failed != undefined){
-      this.failedLog=true
-    } else{
-      this.compilationError = true;
+    // Parse the response data as JSON objects
+    const parsedData = data.response.map((response: string) => {
+      return JSON.parse(response);
+    });
+    console.log(parsedData);
+
+
+    // Initialize failed array and errors array
+    this.failed = [];
+    this.errors = [];
+
+    // Process each parsed object
+    parsedData.forEach((result: any) => {
+      // Extract failed test cases
+      if (result.failed) {
+        result.failed.forEach((failedItem: any) => {
+          if (typeof failedItem === 'string') {
+            // If it's a string, create a default error message
+            this.failed.push({
+              testName: failedItem,
+              errorMessage: "Test failed"
+            });
+          } else if (failedItem.testName && failedItem.errorMessage) {
+            // If it's an object with testName and errorMessage
+            this.failed.push(failedItem);
+          }
+        });
+      }
+
+      // Extract errors if any
+      if (result.errors && result.errors.length > 0) {
+        this.errors = [
+          ...this.errors,
+          ...result.errors.flat()
+        ];
+      }
+    });
+
+    // Set flags based on the availability of data
+    this.failedLog = this.failed.length > 0;
+    this.compilationError = this.errors.length > 0;
+  }
+
+  @ViewChild('modalContent') modalContent: ElementRef | undefined;
+
+  openModal() {
+    this.editMode = true;
+    setTimeout(() => {
+      this.scrollToTop();
+    }, 0); // Wait for the modal to render
+  }
+  private scrollToTop() {
+    if (this.modalContent) {
+      this.modalContent.nativeElement.scrollTop = 0;
     }
-    console.log(this.failed);
-
-
-
-    this.datum =data.response;
-    // this.updateWeightages(this.datum, 'karma')
   }
 
   cancelEdit(): void {
     this.closeModalEvent.emit();
     this.editMode = false;
-    // this.dataEditedEvent.emit(this.data); // Emit edited data
   }
 
   SaveEdit(): void {
     this.closeModalEvent.emit();
-    this.editMode = false;
-    console.log(this.obj);
-
-    // this.dataEditedEvent.emit(this.data.response); // Emit edited data
-    this.dataEditedEvent.emit(this.obj); // Emit edited data
+    console.log(this.failed);
+    this.dataEditedEvent.emit(this.failed); // Emit the edited data if needed
   }
 }

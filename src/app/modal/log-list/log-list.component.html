@@ -1,4 +1,4 @@
-
+<!--
 <div *ngIf="editMode" class="application-modal">
 
   <h2>Testcases Log</h2>
@@ -15,7 +15,6 @@
 
           <tr *ngFor="let test of failed">
               <td style="justify-content: left; display: flex;">{{ test.testName }}</td>
-              <!-- <td>Failed</td> -->
               <td>{{ test.errorMessage }}</td>
           </tr>
 
@@ -30,9 +29,10 @@
         </thead>
         <tbody >
 
-          <tr *ngFor="let test of obj">
-              <td style="justify-content: left; display: flex;">{{ test }}</td>
-              <!-- <td>Failed</td> -->
+          <tr *ngFor="let json of obj">
+            <td style="justify-content: left; display: flex;" *ngFor="let error of json.failed">
+              {{ error }}
+            </td>
           </tr>
 
         </tbody>
@@ -44,4 +44,42 @@
 
   <button class="button" *ngIf="failedLog" type="button" (click)="cancelEdit()">Close</button>
   <button class="button2" *ngIf="compilationError" type="button" (click)="cancelEdit()">Close</button>
+</div> -->
+<div *ngIf="editMode" class="application-modal">
+  <h2>Testcases Log</h2>
+  <div class="modal-content" #modalContent>
+    <div class="info-container">
+    <table *ngIf="failedLog" class="log-table">
+      <thead>
+        <tr>
+          <th>TestCase Name</th>
+          <th>Error Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of failed">
+          <td>{{ test.testName }}</td>
+          <td>{{ test.errorMessage }}</td>
+        </tr>
+      </tbody>
+    </table><br>
+
+    <table *ngIf="compilationError" class="log-table2">
+      <thead>
+        <tr>
+          <th>Compilation Errors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let error of errors">
+          <td>{{ error }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+<button *ngIf="!compilationError" class="button" type="button" (click)="cancelEdit()">Close</button>
+<button *ngIf="compilationError" class="button2" type="button" (click)="cancelEdit()">Close</button>
 </div>
