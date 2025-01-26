@@ -130,7 +130,7 @@
     <mat-paginator
     [length]="responseinJson.length"
     [pageSize]="pageSize"
-    [pageSizeOptions]="[2, 10, 20]"
+    [pageSizeOptions]="[5, 10, 20]"
     (page)="onPageChange($event)">
     </mat-paginator>
     <a class="download" (click)="downloadFile(fileId)">Download Excel &nbsp;

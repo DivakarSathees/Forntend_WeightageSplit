@@ -121,7 +121,7 @@
 }
 
 .file-structure li {
-  padding: 8px;
+  /* padding: 8px; */
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -132,11 +132,13 @@
 
 .file-structure .directory {
   font-weight: bold;
+  padding: 10px;
 }
 
 .file-structure .file {
   font-style: italic;
   color: #bdc3c7;
+  padding: 10px;
 }
 
 .code-container {

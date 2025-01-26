@@ -1519,7 +1519,7 @@ export class ResultAnalyseComponent  implements OnInit {
         console.log(response);
 
         const dialogRef = this.dialog.open(TcListComponent, {
-          width: '600px',
+          width: '400px',
           data: { response,testcases: response },
           // data: { testcases: response },
           // panelClass: 'custom-dialog-container', // Add a custom class for styling

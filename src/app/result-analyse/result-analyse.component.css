@@ -173,10 +173,18 @@ button {
 .spinner{
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cdf4ff75;
+  z-index: 9999;
 }
 /* Loading Spinner */
 .fa-spinner {
-  font-size: 24px;
+  font-size: 34px;
   color: #00495d;
   /* display: block; */
   text-align: center;
