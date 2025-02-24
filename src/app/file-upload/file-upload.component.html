@@ -36,9 +36,9 @@
   <br />
   <div class="buttons">
   <button (click)="onUpload()">Upload</button>
-  <button (click)="cancel()">Cancel</button>
   <button *ngIf="download" class="download-button" (click)="downloadFile()">Download Zip File</button>
-  <button *ngIf="download && downloadsh" class="download-button" (click)="downloadSHFile()">Download SH File</button>
+  <!-- <button *ngIf="download && downloadsh" class="download-button" (click)="downloadSHFile()">Download SH File</button> -->
+  <button (click)="cancel()">Cancel</button>
   </div>
 
 </div>

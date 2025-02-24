@@ -54,12 +54,21 @@
         <tr>
           <th>TestCase Name</th>
           <th>Error Message</th>
+          <th *ngIf="failed[0].testBlock">Test Block</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let test of failed">
           <td>{{ test.testName }}</td>
           <td>{{ test.errorMessage }}</td>
+          <td *ngIf="test.testBlock"><textarea
+            [ngModel]="test.testBlock"
+            readonly
+            rows="6"
+            cols="80"
+            style="resize: none; border: 1px solid #ccc; padding: 10px;">
+          </textarea></td>
+
         </tr>
       </tbody>
     </table><br>
