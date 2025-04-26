@@ -52,10 +52,15 @@ export class ResultAnalyseComponent  implements OnInit {
   processMessage = ''
   mess = false;
   authType = "credentials"
+  fileType = "utestid"
   analysisType: string = ''; // To store the selected analysis type
   email: string = ''; // For email input
   password: string = ''; // For password input
+  course: string = ''; // For course input
+  module: string = ''; // For module input
+  testName: string = ''; // For test name input
   token: string = ''; // For token input
+  loginUrl: string = ''; // For login URL input
 
   displayedColumns: string[] = [
     'name',
@@ -87,6 +92,9 @@ export class ResultAnalyseComponent  implements OnInit {
   }
   onAuthTypeChange(type: string) {
     this.authType = type;
+  }
+  onFileTypeChange(type: string) {
+    this.fileType = type;
   }
 
   onAnalysisTypeChange(event: Event): void {
@@ -149,13 +157,24 @@ export class ResultAnalyseComponent  implements OnInit {
         const formData = new FormData();
         formData.append('file', this.fileToUpload);
         formData.append('analysisType', this.analysisType);
-        formData.append('email', this.email);
-        formData.append('password', this.password);
+        formData.append('USEREMAIL', this.email);
+        formData.append('PASSWORD', this.password);
         formData.append('token', this.token);
+        formData.append('COURSE', this.course);
+        formData.append('MODULE', this.module);
+        formData.append('TESTNAME', this.testName);
+        formData.append('LOGIN_URL', this.loginUrl);
         // Set up headers to indicate form data
         const headers = new HttpHeaders();
         headers.set('enctype', 'multipart/form-data');
         console.log(formData);
+        if (this.fileType === 'utestid') {
+          formData.set('COURSE', '');
+        }
+        if(this.authType === 'credentials'){
+          // clear the token in form data to empty string
+          formData.set('token', '');
+        }
 
     //     this.loading = false;
     //         this.table = true;

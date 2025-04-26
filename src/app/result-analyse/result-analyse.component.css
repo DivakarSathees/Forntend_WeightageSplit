@@ -90,7 +90,7 @@ button {
   /* top: 25px;
   left: 0; */
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #f8312f;
   padding: 10px;
   /* width: 270px; */
   /* justify-content: center; */
@@ -219,6 +219,18 @@ button {
 } */
 
 /* Table Styling */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.th {
+  padding: 8px;
+  text-align: left;
+}
+td {
+  padding: 8px;
+}
+
 .table {
   width: 90%;
   margin: 20px auto;
@@ -291,6 +303,9 @@ button {
   box-shadow: 0 4px 6px rgb(23 122 150 / 32%); /* Subtle shadow for depth */
   font-family: 'Arial', sans-serif; /* Clean, modern font */
 }
+label input[disabled] {
+  cursor: not-allowed;
+}
 
 .analysis-options h3 {
   color: #343a40; /* Dark gray for the heading */
@@ -306,6 +321,11 @@ button {
   color: #495057; /* Slightly darker gray for text */
   cursor: pointer; /* Pointer cursor for better UX */
   transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.analysis-options label input[disabled]{
+  cursor: not-allowed; /* Not-allowed cursor for disabled inputs */
+  opacity: 0.5; /* Slightly faded appearance for disabled inputs */
 }
 
 .analysis-options label:hover {
