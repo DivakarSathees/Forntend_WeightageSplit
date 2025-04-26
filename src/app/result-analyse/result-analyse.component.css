@@ -219,10 +219,10 @@ button {
 } */
 
 /* Table Styling */
-table, th, td {
+/* .hint{
   border: 1px solid black;
   border-collapse: collapse;
-}
+} */
 .th {
   padding: 8px;
   text-align: left;
